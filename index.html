@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Communication Playbook · Central Bank of the Ozarks</title>
+  <meta name="description" content="Your team's Communication Styles results, and how to use them to work better together. Prepared by Habitat Communication &amp; Culture.">
+  <!-- Link preview (Teams, Slack, email). After deploying, change the og:image and og:url values to full https:// addresses on your domain. -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Communication Playbook · Central Bank of the Ozarks">
+  <meta property="og:description" content="Your team's Communication Styles results, and how to use them to work better together. Prepared by Habitat Communication &amp; Culture.">
+  <meta property="og:image" content="assets/share-card.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Communication Playbook for Central Bank of the Ozarks, by Habitat Communication &amp; Culture">
+  <meta property="og:url" content="">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/habitat-mark-3color.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#map">Skip to the team map</a>
+
+  <header class="topbar">
+    <div class="wrap topbar__inner">
+      <div class="lockup">
+        <img class="lockup__habitat" src="assets/habitat-horizontal-4color.svg" alt="Habitat Communication &amp; Culture" width="210" height="43">
+        <span class="lockup__x" aria-hidden="true">×</span>
+        <span class="lockup__client" id="clientLogo"></span>
+      </div>
+      <nav class="topbar__nav" aria-label="Sections">
+        <a href="#styles">Styles</a>
+        <a href="#map">Team</a>
+        <a href="#pairs">Pairs</a>
+        <a href="#pattern">Pattern</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="wrap hero__inner">
+        <p class="hero__client" id="heroClient"></p>
+        <h1 class="hero__title" id="heroTitle">Communication Playbook</h1>
+        <p class="hero__lede" id="heroLede">Your team's Communication Styles results, and how to use them to work better together. We don't just communicate differently; we often disagree about what communication is for. Start with the four styles, then find your teammates on the map.</p>
+      </div>
+    </section>
+
+    <section class="section section--white" id="styles" aria-labelledby="stylesTitle">
+      <div class="wrap">
+        <div class="section__head">
+          <div>
+            <p class="label">The styles</p>
+            <h2 class="headline" id="stylesTitle">Four ways to communicate.</h2>
+          </div>
+          <p class="section__intro">What drives each style, how it shows up, and how to work well with people who lead with it. Tap a card to flip it and see how to work with that style.</p>
+        </div>
+        <div class="cards" id="styleCards"></div>
+        <div class="download">
+          <p>Prefer paper? The workshop handouts have all four styles and the team's results on three printable pages.</p>
+          <a class="button button--ghost" href="assets/communication-styles-reference.pdf" target="_blank" rel="noopener">Download the handouts (PDF)</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="map" aria-labelledby="mapTitle">
+      <div class="wrap">
+        <div class="section__head">
+          <div>
+            <p class="label">The team</p>
+            <h2 class="headline" id="mapTitle">Your team, mapped.</h2>
+          </div>
+          <p class="section__intro">Each dot is a person, placed in the corner of their top style. The closer to the corner, the stronger the lean. Tap anyone to see how to work with them.</p>
+        </div>
+
+        <div class="toolbar">
+          <div class="filters" role="group" aria-label="Highlight a style" id="filters"></div>
+          <button type="button" class="toggle" id="compareToggle" aria-pressed="false">Compare two people</button>
+        </div>
+        <p class="hint" id="compareHint" hidden></p>
+
+        <div class="mapgrid">
+          <div class="map" id="mapBoard" role="group" aria-label="Team map">
+            <div class="map__quads" aria-hidden="true" id="mapQuads"></div>
+            <div class="map__axis map__axis--h" aria-hidden="true"></div>
+            <div class="map__axis map__axis--v" aria-hidden="true"></div>
+            <div class="map__dots" id="mapDots"></div>
+          </div>
+          <aside class="panel" id="panel" aria-live="polite"></aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--white" id="pairs" aria-labelledby="pairsTitle">
+      <div class="wrap">
+        <div class="section__head">
+          <div>
+            <p class="label">Pairs</p>
+            <h2 class="headline" id="pairsTitle">Two people, side by side.</h2>
+          </div>
+          <p class="section__intro">See where two styles connect, where friction tends to show up, and one move each person can make. Pick names here, or use “Compare two people” on the map.</p>
+        </div>
+        <form class="pairpick" id="pairpick">
+          <label class="field" for="pairA">
+            <span class="field__label">Person A</span>
+            <select id="pairA"></select>
+          </label>
+          <button type="button" class="swap" id="pairSwap" aria-label="Swap people">⇄</button>
+          <label class="field" for="pairB">
+            <span class="field__label">Person B</span>
+            <select id="pairB"></select>
+          </label>
+        </form>
+        <div id="pairResult" class="pairresult" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="section section--dark" id="pattern" aria-labelledby="patternTitle">
+      <div class="wrap">
+        <div class="section__head">
+          <div>
+            <p class="label">Our pattern</p>
+            <h2 class="headline" id="patternTitle">The shape of this team.</h2>
+          </div>
+          <p class="statement" id="patternHeadline"></p>
+        </div>
+        <div class="pattern">
+          <figure class="pattern__shape">
+            <div id="teamShape"></div>
+            <figcaption>Team average for each style. The dashed ring marks an even split (35).</figcaption>
+          </figure>
+          <div class="insights" id="insights"></div>
+        </div>
+        <div class="pattern__cols">
+          <div>
+            <h3 class="label label--rule">In our meetings</h3>
+            <ul class="sparklist" id="meetingTips"></ul>
+          </div>
+          <div>
+            <h3 class="label label--rule">Questions to keep asking</h3>
+            <ul class="sparklist" id="questions"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <div class="footer__cta">
+        <p class="label">Bring this to another team</p>
+        <p class="footer__big">Want a playbook like this for another team?</p>
+        <div class="emailrow">
+          <a class="button" id="ctaEmail" href="mailto:spencer@teamhabitat.com?subject=Communication%20Playbook">Email Spencer</a>
+          <span class="emailrow__addr" id="ctaAddr">spencer@teamhabitat.com</span>
+          <button type="button" class="copy" id="copyEmail">Copy</button>
+        </div>
+      </div>
+      <div class="footer__brand">
+        <img src="assets/habitat-horizontal-white-negative.svg" alt="Habitat Communication &amp; Culture" width="210" height="43">
+        <p class="footer__prepared" id="prepared"></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="content.js"></script>
+  <script src="data/team.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
